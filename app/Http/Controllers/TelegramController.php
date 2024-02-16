@@ -22,11 +22,11 @@ class TelegramController extends Controller
     }
     public function inbound(Request $request)
     {
-        \Log::info($request->all());
+        // \Log::info($request->all());
         $chat_id = $request->message['from']['id'] ?? null;
         $reply_to_message = $request->message['message_id'] ?? null;
-        \Log::info("chat_id: {$chat_id}");
-        \Log::info("reply_to_message: {$reply_to_message}");
+        // \Log::info("chat_id: {$chat_id}");
+        // \Log::info("reply_to_message: {$reply_to_message}");
 
         if ($request->message['text'] === '/start' || $request->message['text'] === '/help') {
             $chat_id = $request->message['from']['id'];

@@ -14,7 +14,7 @@ use App\Http\Controllers\TelegramController;
 |
 */
 
-Route::get('/api/test', function () {
+Route::get('/test', function () {
     return response()->json('yphhh', 200);
 });
 
@@ -22,9 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::prefix('telegram/webhooks')->group(function () {
-    Route::post('inbound', function (Request $request) {
-        \Log::info($request->all());
-    });
+    // Route::post('inbound', function (Request $request) {
+    //     \Log::info($request->all());
+    // });
 
     Route::post('inbound',[TelegramController::class, 'inbound'])->name('telegram.inbound');
 });
