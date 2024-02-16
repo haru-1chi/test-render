@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\TelegramController;
+use App\Http\Controllers\WordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,10 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::prefix('telegram/webhooks')->group(function () {
-    Route::post('inbound', function (Request $request) {
-        \Log::info($request->all());
-    });
+Route::get('/test-render', [WordController::class, 'testRender']);
+Route::get('/downloadDocx', [WordController::class, 'downloadDocx']);
 
-    Route::post('inbound',[TelegramController::class, 'inbound'])->name('telegram.inbound');
+Route::get('/doc-generate',function(){
+    $headers = array(
+        'Content-type'=>'text/html',
+        'Content-Disposition'=>'attatchement;Filename=mydoc.docx'
+    );
+    return \Response::make(view('word-summary'), 200,$headers);
 });
