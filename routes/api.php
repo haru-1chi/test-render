@@ -14,8 +14,8 @@ use App\Http\Controllers\TelegramController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/api/test', function () {
+    return response()->json('yphhh', 200);
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
