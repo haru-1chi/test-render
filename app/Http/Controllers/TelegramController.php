@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 use PhpOffice\PhpWord\TemplateProcessor;
 use PhpOffice\PhpWord\Element\Section;
