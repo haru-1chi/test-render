@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 echo "Running composer"
 composer global require hirak/prestissimo
+composer require illuminate/http.
 composer install --no-dev --working-dir=/var/www/html
 chmod -R 777 /var/www/html/storage/logs
 
