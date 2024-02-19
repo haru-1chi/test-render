@@ -2,6 +2,7 @@
 echo "Running composer"
 composer global require hirak/prestissimo
 composer install --no-dev --working-dir=/var/www/html
+chmod -R 777 /var/www/html/storage/logs
 
 echo "Caching optimize..."
 php artisan optimize:clear
