@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 echo "Running composer"
-composer update
 composer global require hirak/prestissimo
-composer require phpoffice/phpword
 composer install --no-dev --working-dir=/var/www/html
 
+echo "Caching optimize..."
+php artisan optimize:clear
 
 echo "Caching config..."
 php artisan config:cache
